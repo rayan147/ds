@@ -1,8 +1,8 @@
 import LinkedNode from './node';
 
 class LinkedList {
-  head: LinkedNode | null;
-  tail: LinkedNode | null;
+ public head?: LinkedNode | null;
+ public tail: LinkedNode | null;
   length: number;
 
   constructor() {
@@ -12,7 +12,7 @@ class LinkedList {
   }
   // add to the end of the list
   // Time complexity: O(1)
-  add(value: any) {
+ public add(value: any) :void {
     let node = new LinkedNode(value);
     if (this.head === null) {
       this.head = node;
@@ -25,7 +25,7 @@ class LinkedList {
   }
   // remove from the end of the list
   // Time complexity: O(n)
-  remove() {
+public  remove(): LinkedNode["value"] | null {
     if (this.length === 0) {
       return null;
     }

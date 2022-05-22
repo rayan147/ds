@@ -1,6 +1,10 @@
 import Queue from '.';
 
 describe('QueueArray', () => {
+  it('should create a queue', () => {
+    const queue = new Queue();
+    expect(queue).toBeInstanceOf(Queue);
+  });
   it('should enqueue', () => {
     const queue = new Queue();
     queue.enqueue(1);
@@ -9,7 +13,7 @@ describe('QueueArray', () => {
     expect(queue.length).toBe(3);
   });
 
-  it('should dequeue', () => {
+  it('should dequeue from the begining ', () => {
     const queue = new Queue();
     queue.enqueue(1);
     queue.enqueue(2);

@@ -1,6 +1,10 @@
 import LinkedList from './ll';
 
 describe('LinkedList', () => {
+  it('should create a LinkedList', () => {
+    const linkedList = new LinkedList();
+    expect(linkedList).toBeInstanceOf(LinkedList);
+  });
   it('should add to the end of the list', () => {
     let list = new LinkedList();
     expect(list.length).toBe(0);

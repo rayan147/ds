@@ -1,8 +1,8 @@
 import QueueNode from './node';
-
+// FIRST IN FIRST OUT (FIFO)
 class Queue {
-  head: QueueNode | null;
-  tail: QueueNode | null;
+ public head?: QueueNode | null;
+ public tail: QueueNode | null;
   length: number;
 
   constructor() {
@@ -12,7 +12,7 @@ class Queue {
   }
   // add to the end of the list
   // Time complexity: O(1)
-  enqueue(value: any) {
+ public enqueue(value: any): void {
     let node = new QueueNode(value);
     if (this.head === null) {
       this.head = node;
@@ -23,22 +23,16 @@ class Queue {
     }
     this.length++;
   }
-  // remove from the end of the list
-  // Time complexity: O(n)
-  dequeue() {
+  // remove from the the beginning of the list
+  // Time complexity: O(1)
+ public dequeue() :QueueNode["value"] | null {
     if (this.length === 0) {
       return null;
     }
-    let current = this.head;
-    let previous = this.head;
-    while (current.next !== null) {
-      previous = current;
-      current = current.next;
-    }
-    this.tail = previous;
-    this.tail.next = null;
+    this.head = this.head.next;
     this.length--;
-    return current.value;
+    return this.head;
+    
   }
 }
 export default Queue;
